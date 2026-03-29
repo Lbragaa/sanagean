@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://ci2taedje86n3"]
 
 [ext_resource type="Script" uid="uid://bq15ykj2bc5sx" path="res://scripts/battle_controller.gd" id="1_dn72j"]
+[ext_resource type="Texture2D" uid="uid://cgnv7jlgqo1tl" path="res://assets/skills/Sexo2_fireball.png" id="2_a12nh"]
+[ext_resource type="Texture2D" uid="uid://blbh4x1651jhc" path="res://assets/characters/Sexo2_player.png" id="3_lpir7"]
+[ext_resource type="Texture2D" uid="uid://dhb12tvs8l2m3" path="res://assets/characters/Sexo2_enemy.png" id="4_6vh42"]
 
 [node name="Battle" type="Node2D" unique_id=569071049]
 script = ExtResource("1_dn72j")
@@ -8,6 +11,7 @@ script = ExtResource("1_dn72j")
 [node name="UI" type="CanvasLayer" parent="." unique_id=2028225200]
 
 [node name="Background" type="ColorRect" parent="UI" unique_id=1355027296]
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,10 +21,10 @@ mouse_filter = 2
 color = Color(0.56711334, 0.7992977, 0.39076072, 1)
 
 [node name="PlayerHPLabel" type="Label" parent="UI" unique_id=950044661]
-offset_left = 121.0
-offset_top = 559.0
-offset_right = 223.0
-offset_bottom = 582.0
+offset_left = 16.0
+offset_top = 555.0
+offset_right = 118.0
+offset_bottom = 578.0
 text = "Player HP: 10"
 
 [node name="EnemyHPLabel" type="Label" parent="UI" unique_id=1361459456]
@@ -37,27 +41,60 @@ offset_right = 159.0
 offset_bottom = 49.0
 text = "Player Turn"
 
+[node name="ManaLabel" type="Label" parent="UI" unique_id=471083185]
+offset_left = 136.0
+offset_top = 556.0
+offset_right = 207.0
+offset_bottom = 579.0
+text = "Mana: 10"
+
 [node name="AttackButton" type="Button" parent="UI" unique_id=1362656766]
-offset_left = 99.0
-offset_top = 603.0
-offset_right = 157.0
-offset_bottom = 634.0
+offset_left = 23.0
+offset_top = 615.0
+offset_right = 81.0
+offset_bottom = 646.0
 text = "Attack"
 
 [node name="GuardButton" type="Button" parent="UI" unique_id=1458548558]
-offset_left = 186.0
-offset_top = 600.0
-offset_right = 242.0
-offset_bottom = 631.0
+offset_left = 102.0
+offset_top = 617.0
+offset_right = 158.0
+offset_bottom = 648.0
 text = "Guard"
 
 [node name="ResetButton" type="Button" parent="UI" unique_id=2010175434]
-offset_left = 1090.0
-offset_top = 661.0
-offset_right = 1192.0
-offset_bottom = 692.0
+offset_left = 1023.0
+offset_top = 632.0
+offset_right = 1125.0
+offset_bottom = 663.0
 text = "Reset Battle"
+
+[node name="SkillButton" type="Button" parent="UI" unique_id=1867029609]
+offset_left = 181.0
+offset_top = 616.0
+offset_right = 221.0
+offset_bottom = 647.0
+text = "Skill: Fireball
+"
+
+[node name="PlayerSprite" type="Sprite2D" parent="UI" unique_id=641113404]
+z_index = -1
+position = Vector2(256, 442)
+scale = Vector2(0.30978256, 0.30978256)
+texture = ExtResource("3_lpir7")
+
+[node name="EnemySprite" type="Sprite2D" parent="UI" unique_id=1994871819]
+z_index = -1
+position = Vector2(859, 220)
+scale = Vector2(0.4581545, 0.4581545)
+texture = ExtResource("4_6vh42")
+
+[node name="FireballSprite" type="Sprite2D" parent="UI" unique_id=1690019570]
+position = Vector2(421, 444.00003)
+scale = Vector2(0.13565892, 0.1356589)
+texture = ExtResource("2_a12nh")
 
 [connection signal="pressed" from="UI/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/GuardButton" to="." method="_on_guard_button_pressed"]
 [connection signal="pressed" from="UI/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="UI/SkillButton" to="." method="_on_skill_button_pressed"]
