@@ -26,10 +26,10 @@ var overload_cooldown_remaining: int = 0
 @onready var stabilize_button = $UI/StabilizeButton
 @onready var reset_button = $UI/ResetButton
 @onready var overload_button = $UI/OverloadButton
-@onready var player_sprite = $Characters/PlayerSprite
-@onready var enemy_sprite = $Characters/EnemySprite
+@onready var player_sprite = $World/Characters/PlayerSprite
+@onready var enemy_sprite = $World/Characters/EnemySprite
 # I know it is named fireball right now, i was just lazy to change to pulse ball in the rest of the code
-@onready var fireball_sprite = $Projectiles/PulseballSprite
+@onready var fireball_sprite = $World/Projectiles/PulseballSprite
 @onready var discharge_button = $UI/DischargeButton
 @onready var energy_bar = $UI/EnergyBar
 
